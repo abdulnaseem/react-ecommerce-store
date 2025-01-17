@@ -26,3 +26,4 @@ dist-ssr
 
 *.js
 *.js.map
+.vercel

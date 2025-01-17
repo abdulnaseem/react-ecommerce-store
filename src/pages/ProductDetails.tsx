@@ -44,7 +44,7 @@ const ProductDetails: React.FC = () => {
           {/* Left Section: Product Image */}
           <div className="flex items-center justify-center">
             <img
-              src={`/${product.image}`}
+              src={product.image}
               alt="Product"
               className="rounded-lg shadow-md"
             />

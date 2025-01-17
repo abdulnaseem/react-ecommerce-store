@@ -10,7 +10,7 @@ import { selectTotalQuantity } from "../../redux/slices/cartSlice";
 import SearchBar from "../SearchBar";
 import { filterByGender } from "../../redux/slices/productsSlice";
 import { useMediaQuery } from "react-responsive";
-import LOGO from '../../assets/clothing.jpeg';
+import LOGO from '../../../public/assets/clothing.jpeg';
 import MobileNav from "./MobileNav";
 import { AnimatePresence } from "framer-motion";
 
@@ -37,7 +37,7 @@ const Header: React.FC = () => {
                 <div className="flex justify-between p-3 bg-black text-white items-center">
                     <div className="ms-5">
                         <Link to="/" onClick={() => dispatch(filterByGender(""))}>
-                            <img src={LOGO} className="w-24" alt="Logo" />
+                            <img src="/assets/clothing.jpeg" className="w-24" alt="Logo" />
                         </Link>
                     </div>
                     <div className="flex flex-row">
