@@ -5,7 +5,7 @@ import { products } from '../../data/products';
 const initialState: ProductsState = {
     allProducts: products,
     filteredProducts: products,
-    toggleFilters: false,
+    isFilter: false,
 }
 
 const productsSlice = createSlice({
@@ -66,7 +66,7 @@ const productsSlice = createSlice({
             }
         },
         toggleFilter: (state) => {
-            state.toggleFilters = !state.toggleFilters;
+            state.isFilter = !state.isFilter;
         }
     },
 });

@@ -10,8 +10,8 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ id, name, price, image }) => {
     return (
-        <Link to={`/product/${id}`} className="product-card w-[200px] m-5 text-center">
-            <img src={image} alt={name} />
+        <Link to={`/product/${id}`} className="product-card w-[200px] md:w-[250px] lg:w-[300px] text-center">
+            <img src={`./${image}`} alt={name} />
             <h3>{name}</h3>
             <p>£{price}</p>
         </Link>

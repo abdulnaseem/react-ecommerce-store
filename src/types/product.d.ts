@@ -15,6 +15,6 @@ export interface Product {
 export interface ProductsState {
     allProducts: Product[]; // List of all products
     filteredProducts: Product[]; // List of filtered products after applying filters
-    toggleFilters: boolean
+    isFilter: boolean
 }
   

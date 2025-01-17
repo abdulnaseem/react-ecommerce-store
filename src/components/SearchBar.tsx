@@ -13,6 +13,7 @@ const SearchBar: React.FC = () => {
 
     return (
         <input 
+            className="text-sm p-2 w-[300px] text-black"
             type="text"
             placeholder="Search products..."
             value={query}
