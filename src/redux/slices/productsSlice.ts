@@ -28,24 +28,38 @@ const productsSlice = createSlice({
                 );
             }
         },
-        filterByColor: (state, action: PayloadAction<string>) => {
-            if(action.payload === '') {
-                state.filteredProducts = state.allProducts;
+        filterByColor: (state, action: PayloadAction<string[]>) => {
+            const selectedColors = action.payload;
+        
+            if (selectedColors.length === 0) {
+                state.filteredProducts = state.allProducts; // No filter applied
             } else {
-                state.filteredProducts = state.allProducts.filter(
-                    (product) => product.color === action.payload
+                state.filteredProducts = state.allProducts.filter((product) =>
+                    selectedColors.includes(product.color) // Match any of the selected colors
                 );
             }
         },
-        filterBySize: (state, action: PayloadAction<string>) => {
-            if(action.payload === '') {
-                state.filteredProducts = state.allProducts;
+        filterBySize: (state, action: PayloadAction<string[]>) => {
+            const selectedSizes = action.payload;
+        
+            if (selectedSizes.length === 0) {
+                state.filteredProducts = state.allProducts; // No filter applied
             } else {
-                state.filteredProducts = state.allProducts.filter(
-                    (product) => product.size.includes(action.payload)
+                state.filteredProducts = state.allProducts.filter((product) =>
+                    product.size.some((size) => selectedSizes.includes(size)) // Match any of the selected sizes
                 );
             }
         },
+        filterByColorAndSize: (state, action: PayloadAction<{ colors: string[]; sizes: string[] }>) => {
+            const { colors, sizes } = action.payload;
+        
+            state.filteredProducts = state.allProducts.filter((product) => {
+                const matchesColor = colors.length === 0 || colors.includes(product.color);
+                const matchesSize = sizes.length === 0 || product.size.some((size) => sizes.includes(size));
+        
+                return matchesColor && matchesSize; // Only include products that match both criteria
+            });
+        },        
         filterBySortChange: (state, action: PayloadAction<string>) => {
             const sortType = action.payload;
 
@@ -71,5 +85,13 @@ const productsSlice = createSlice({
     },
 });
 
-export const { filterBySearch, filterByGender, filterByColor, filterBySize, filterBySortChange, toggleFilter } = productsSlice.actions;
+export const { 
+    filterBySearch, 
+    filterByGender, 
+    filterByColor, 
+    filterBySize, 
+    filterByColorAndSize, 
+    filterBySortChange, 
+    toggleFilter 
+} = productsSlice.actions;
 export default productsSlice.reducer;

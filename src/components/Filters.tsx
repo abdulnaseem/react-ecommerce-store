@@ -5,6 +5,7 @@ import {
   filterByColor,
   filterBySize,
   filterBySortChange,
+  filterByColorAndSize
 } from "../redux/slices/productsSlice";
 import { motion } from "framer-motion";
 import { RootState } from "../redux/store";
@@ -78,11 +79,13 @@ const Filters = forwardRef<HTMLDivElement, FiltersProps>(({ isVisible, toggleFil
   };
 
   const applyFilters = () => {
-    dispatch(filterByGender(gender));
-    colors.forEach((color) => dispatch(filterByColor(color)));
-    sizes.forEach((size) => dispatch(filterBySize(size)));
+    dispatch(
+      filterByColorAndSize({
+          colors,
+          sizes,
+      })
+    );
   };
-
 
   return (
     
@@ -110,7 +113,7 @@ const Filters = forwardRef<HTMLDivElement, FiltersProps>(({ isVisible, toggleFil
             </div>
           )
         }
-        <h3 className={`font-bold mb-2 ${isMobile && "mt-20"}`}>Category</h3>
+        {/* <h3 className={`font-bold mb-2 ${isMobile && "mt-20"}`}>Category</h3>
         <div className="flex">
           <input
             id="all-categories"
@@ -165,14 +168,14 @@ const Filters = forwardRef<HTMLDivElement, FiltersProps>(({ isVisible, toggleFil
           <label htmlFor="kids" className="ms-2">
             Kids
           </label>
-        </div>
+        </div> */}
       </div>
 
       {/* Size filter */}
-      <div className="mb-4">
+      <div className={`mb-4 h-[250px] border overflow-y-scroll p-4 ${isMobile && "mt-20"}`}>
         <h3 className="font-bold mb-2">Sizes</h3>
         {sizeFilter.map((size) => (
-          <div className="flex">
+          <div className="flex ms-5">
             <input
               id={size}
               type="checkbox"
@@ -188,10 +191,10 @@ const Filters = forwardRef<HTMLDivElement, FiltersProps>(({ isVisible, toggleFil
       </div>
 
       {/* Color filter */}
-      <div className="mb-4">
+      <div className="mb-4 h-[250px] border overflow-y-scroll p-4">
         <h3 className="font-bold mb-2">Colors</h3>
         {colorsFilter.map((color) => (
-          <div className="flex">
+          <div className="flex ms-5">
             <input
               id={color}
               type="checkbox"
@@ -209,7 +212,7 @@ const Filters = forwardRef<HTMLDivElement, FiltersProps>(({ isVisible, toggleFil
       {/* Apply Filters Button */}
       <button
         onClick={applyFilters}
-        className="bg-blue-500 text-white px-5 py-2 rounded-md hover:bg-blue-600"
+        className="bg-gray-800 text-white px-5 py-2 rounded-md hover:bg-gray-900"
       >
         Apply Filters
       </button>

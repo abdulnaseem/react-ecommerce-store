@@ -80,7 +80,7 @@ const ProductDetails: React.FC = () => {
             {/* Quantity Selector and Add to Cart */}
             <div className="flex items-center space-x-4">
               {/* Add to Cart Button */}
-              <button className="bg-blue-500 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-blue-600"
+              <button className="bg-gray-800 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-gray-900"
                       onClick={handleAddToCart}>
                 Add to Cart
               </button>

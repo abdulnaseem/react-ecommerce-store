@@ -39,16 +39,22 @@ const HomePage: React.FC = () => {
   //   };
   // }, [dispatch, isFilter]);
 
+  console.log(filteredProducts);
+
   return (
-    <div className="flex flex-row w-full justify-center">
+    <div className="flex flex-row w-full justify-start">
       <div className="sticky top-0 h-screen">
         {/* Filters Component */}
         <Filters ref={filterRef} isVisible={isFilter} toggleFilter={handleToggleFilter} />
       </div>
 
-      <div className="flex flex-col justify-center overflow-y-auto w-full">
+      <div className={`flex flex-col justify-start w-full sticky top-0`}>
         <Sort />
-        <div className={`product-grid grid grid-cols-2 xl:grid-cols-3 gap-4 place-items-center ${isMobile ? "" : "ms-8"}`}>
+        <div
+          className={`product-grid grid grid-cols-2 xl:grid-cols-3 gap-4 place-items-center ${
+            isMobile ? "" : "ms-8"
+          }`}
+        >
           {filteredProducts.map((product) => (
             <ProductCard
               key={product.id}
@@ -61,6 +67,7 @@ const HomePage: React.FC = () => {
         </div>
       </div>
     </div>
+
 
   );
 };

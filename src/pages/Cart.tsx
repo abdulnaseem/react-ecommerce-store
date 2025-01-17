@@ -91,7 +91,7 @@ const Cart: React.FC = () => {
             <h2 className="text-xl font-bold mt-2">
               Total: £{totalPrice.toFixed(2)}
             </h2>
-            <button className="bg-blue-500 text-white px-5 py-2 rounded-md mt-4 hover:bg-blue-600">
+            <button className="bg-gray-800 text-white px-5 py-2 rounded-md mt-4 hover:bg-gray-900">
               Checkout Securely
             </button>
           </div>
