@@ -18,6 +18,11 @@ interface FiltersProps {
   toggleFilter: MouseEventHandler
 }
 
+interface ColorFilter {
+  color: string;  // The name of the color
+  hex: string; // The corresponding color value (e.g., hex code or CSS color name)
+}
+
 const Filters = forwardRef<HTMLDivElement, FiltersProps>(({ isVisible, toggleFilter }, ref) => {
   const dispatch = useDispatch();
 
@@ -34,21 +39,21 @@ const Filters = forwardRef<HTMLDivElement, FiltersProps>(({ isVisible, toggleFil
     setHasMounted(true);
   }, []);
 
-  const colorsFilter: string[] = [
-    "black",
-    "red",
-    "blue",
-    "yellow",
-    "brown",
-    "beige",
-    "white",
-    "green",
-    "pink",
-    "purple",
-    "tan",
-    "gold",
-    "silver",
-    "multicolor",
+  const colorsFilter: ColorFilter[] = [
+    { color: "black", hex: "#000000" },
+    { color: "red", hex: "#FF0000" },
+    { color: "blue", hex: "#0000FF" },
+    { color: "yellow", hex: "#FFFF00" },
+    { color: "brown", hex: "#8B4513" },
+    { color: "beige", hex: "#F5F5DC" },
+    { color: "white", hex: "#FFFFFF" },
+    { color: "green", hex: "#008000" },
+    { color: "pink", hex: "#FFC0CB" },
+    { color: "purple", hex: "#800080" },
+    { color: "tan", hex: "#D2B48C" },
+    { color: "gold", hex: "#FFD700" },
+    { color: "silver", hex: "#C0C0C0" },
+    { color: "multicolor", hex: "linear-gradient(to right, red, orange, yellow, green, blue, purple)" }
   ];
 
   const sizeFilter: string[] = [
@@ -185,7 +190,7 @@ const Filters = forwardRef<HTMLDivElement, FiltersProps>(({ isVisible, toggleFil
               checked={sizes.includes(size)}
               onChange={() => handleSizeChange(size)}
             />
-            <label htmlFor={size} key={size} className="block ms-2">
+            <label htmlFor={size} key={size} className="block ms-0.5">
               {size}
             </label>
           </div>          
@@ -198,14 +203,18 @@ const Filters = forwardRef<HTMLDivElement, FiltersProps>(({ isVisible, toggleFil
         {colorsFilter.map((color) => (
           <div className="flex ms-5">
             <input
-              id={color}
+              id={color.color}
               type="checkbox"
-              value={color}
-              checked={colors.includes(color)}
-              onChange={() => handleColorChange(color)}
+              value={color.color}
+              checked={colors.includes(color.color)}
+              onChange={() => handleColorChange(color.color)}
             />
-            <label htmlFor={color} key={color} className="block ms-2">
-              {color.charAt(0).toUpperCase() + color.slice(1)}
+            <div
+              className="w-[12px] h-[12px] rounded-[50%] m-2 border"
+              style={{ backgroundColor: color.hex }}
+            ></div>
+            <label htmlFor={color.color} key={color.color} className="block ms-0.5 mt-0.5">
+              {color.color.charAt(0).toUpperCase() + color.color.slice(1)}
             </label>
           </div>
         ))}
