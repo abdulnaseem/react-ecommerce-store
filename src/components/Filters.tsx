@@ -190,7 +190,7 @@ const Filters = forwardRef<HTMLDivElement, FiltersProps>(({ isVisible, toggleFil
               checked={sizes.includes(size)}
               onChange={() => handleSizeChange(size)}
             />
-            <label htmlFor={size} key={size} className="block ms-0.5">
+            <label htmlFor={size} key={size} className="block ms-2">
               {size}
             </label>
           </div>          
