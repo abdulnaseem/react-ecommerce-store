@@ -42,12 +42,18 @@ const HomePage: React.FC = () => {
   console.log(filteredProducts);
 
   return (
-    <div className="flex flex-row w-full justify-start">
-      <div className="sticky top-0 h-screen">
+    <div className="relative flex flex-row w-full justify-start">
+      {/* {isMobile && isFilter && (
+        <div
+          onClick={() => toggleFilter}
+          className="fixed inset-0 bg-black bg-opacity-50 z-[900]"
+        />
+      )} */}
+      <div className="sticky top-0 h-screen z-50">
         {/* Filters Component */}
         <Filters ref={filterRef} isVisible={isFilter} toggleFilter={handleToggleFilter} />
       </div>
-
+  
       <div className={`flex flex-col justify-start w-full sticky top-0`}>
         <Sort />
         <div
@@ -67,9 +73,8 @@ const HomePage: React.FC = () => {
         </div>
       </div>
     </div>
-
-
   );
+  
 };
 
 export default HomePage;

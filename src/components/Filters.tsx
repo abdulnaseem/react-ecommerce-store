@@ -90,19 +90,21 @@ const Filters = forwardRef<HTMLDivElement, FiltersProps>(({ isVisible, toggleFil
   return (
     
     <motion.div
-        ref={ref}
-        className={`filters p-5 border bg-white h-[100vh] overflow-y-auto ${isMobile ? "fixed top-0 left-0 z-10 w-[65%]" : "w-[220px] lg:w-[300px]"}`}
-        {...(isMobile && {
-          initial: hasMounted ? { x : "-100%" } : false, // Start off-screen or in place
-          animate: { x: isVisible ? 0 : "-100%" }, // Move on-screen or off-screen
-          transition: {
-              type: "spring",       // Type of animation
-              stiffness: 100,       // Spring stiffness
-              damping: 20,          // Spring damping
-              duration: 0.8         // Duration in seconds
-          },
-        })}
+      ref={ref}
+      className={`filters p-5 border bg-white h-[100vh] overflow-y-auto 
+        ${isMobile ? "fixed top-0 left-0 z-[1000] w-[65%]" : "sticky top-0 z-50 w-[220px] lg:w-[300px]"}`}
+      {...(isMobile && {
+        initial: hasMounted ? { x: "-100%" } : false, // Start off-screen or in place
+        animate: { x: isVisible ? 0 : "-100%" }, // Move on-screen or off-screen
+        transition: {
+          type: "spring",       // Type of animation
+          stiffness: 100,       // Spring stiffness
+          damping: 20,          // Spring damping
+          duration: 0.8         // Duration in seconds
+        },
+      })}
     >
+
        
       {/* Category filter */}
       <div className="mb-4 flex flex-col">
@@ -172,7 +174,7 @@ const Filters = forwardRef<HTMLDivElement, FiltersProps>(({ isVisible, toggleFil
       </div>
 
       {/* Size filter */}
-      <div className={`mb-4 h-[250px] border overflow-y-scroll p-4 ${isMobile && "mt-20"}`}>
+      <div className={`mb-4 h-[250px] border overflow-y-scroll p-4 ${isMobile && "mt-20 z-10"}`}>
         <h3 className="font-bold mb-2">Sizes</h3>
         {sizeFilter.map((size) => (
           <div className="flex ms-5">
@@ -191,7 +193,7 @@ const Filters = forwardRef<HTMLDivElement, FiltersProps>(({ isVisible, toggleFil
       </div>
 
       {/* Color filter */}
-      <div className="mb-4 h-[250px] border overflow-y-scroll p-4">
+      <div className="mb-4 h-[250px] border overflow-y-scroll p-4 z-10">
         <h3 className="font-bold mb-2">Colors</h3>
         {colorsFilter.map((color) => (
           <div className="flex ms-5">
