@@ -76,11 +76,17 @@ const Header: React.FC = () => {
             {/* Desktop Navigation */}
             {!isMobile && (
                 <nav className="bg-black text-white pb-3">
-                    <ul className="flex justify-center">
-                        <li className="p-2 cursor-pointer" onClick={() => handleFilterByGender("men")}>Men</li>
-                        <li className="p-2 cursor-pointer" onClick={() => handleFilterByGender("women")}>Women</li>
-                        <li className="p-2 cursor-pointer" onClick={() => handleFilterByGender("kids")}>Kids</li>
-                    </ul>
+                    <div className="flex justify-center">
+                        <Link to="/men" className="p-2">
+                            Men
+                        </Link>
+                        <Link to="/women" className="p-2">
+                            Women
+                        </Link>
+                        <Link to="/kids" className="p-2">
+                            Kids
+                        </Link>
+                    </div>
                 </nav>
             )}
         </>

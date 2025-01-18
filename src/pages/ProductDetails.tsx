@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { RootState } from "../redux/store";
 import { addToCart } from "../redux/slices/cartSlice";
 
@@ -80,10 +80,10 @@ const ProductDetails: React.FC = () => {
             {/* Quantity Selector and Add to Cart */}
             <div className="flex items-center space-x-4">
               {/* Add to Cart Button */}
-              <button className="bg-gray-800 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-gray-900"
+              <Link to="/cart" className="bg-gray-800 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-gray-900"
                       onClick={handleAddToCart}>
                 Add to Cart
-              </button>
+              </Link>
             </div>
   
             {/* Additional Details */}

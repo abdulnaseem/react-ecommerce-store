@@ -15,7 +15,7 @@ import { IoCloseOutline } from "react-icons/io5";
 interface FiltersProps {
   // Add any additional props here if needed
   isVisible: boolean;
-  toggleFilter: MouseEventHandler
+  toggleFilter: MouseEventHandler;
 }
 
 interface ColorFilter {
@@ -87,7 +87,7 @@ const Filters = forwardRef<HTMLDivElement, FiltersProps>(({ isVisible, toggleFil
     dispatch(
       filterByColorAndSize({
           colors,
-          sizes,
+          sizes
       })
     );
   };

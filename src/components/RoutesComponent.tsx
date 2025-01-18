@@ -3,9 +3,9 @@ import { useRoutes } from "react-router-dom";
 import HomePage from '../pages/HomePage';
 import ProductPage from '../pages/ProductDetails';
 import CartPage from '../pages/Cart';
-import Men from '../pages/Men';
-import Women from '../pages/Women';
-import Kids from '../pages/Kids';
+import MenPage from '../pages/MenPage';
+import WomenPage from '../pages/WomenPage';
+import KidsPage from '../pages/KidsPage';
 
 const RoutesComponent: React.FC = () => {
   // Define your routes
@@ -13,9 +13,9 @@ const RoutesComponent: React.FC = () => {
     { path: '/', element: <HomePage /> },
     { path: '/product/:id', element: <ProductPage /> },
     { path: '/cart', element: <CartPage /> },
-    { path: '/men', element: <Men /> },
-    { path: '/women', element: <Women /> },
-    { path: '/kids', element: <Kids /> },
+    { path: '/men', element: <MenPage /> },
+    { path: '/women', element: <WomenPage /> },
+    { path: '/kids', element: <KidsPage /> },
   ]);
 
   return routes;

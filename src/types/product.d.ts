@@ -5,7 +5,8 @@ export interface Product {
     description: string; // Product description
     price: number; // Product price
     image: string; // URL to the product's image
-    category: "men" | "women" | "kids"; // Category of the product
+    gender: "men" | "women" | "kids"; // Category of the product
+    category: string;
     color: string; // Product color
     size: string[]; // Available sizes (e.g., ["S", "M", "L", "XL"])
     stock: number; // Available stock count
@@ -15,6 +16,12 @@ export interface Product {
 export interface ProductsState {
     allProducts: Product[]; // List of all products
     filteredProducts: Product[]; // List of filtered products after applying filters
-    isFilter: boolean
+    menProducts: Product[];
+    filteredMen: Product[];
+    womenProducts: Product[];
+    filteredWomen: Product[]; 
+    kidsProducts: Product[]; 
+    filteredKids: Product[];
+    isFilter: boolean;
 }
   
