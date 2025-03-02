@@ -19,10 +19,17 @@ const ProductDetails: React.FC = () => {
     }
 
     const handleAddToCart = () => {
-        dispatch(addToCart({ id: product.id, quantity: 1 }));
+        dispatch(addToCart({     
+          id: product.id,
+          name: product.name,
+          image: product.image,
+          description: product.description,
+          price: product.price,
+          quantity: 1,
+        }));
     }
 
-    console.log(product.image);
+    console.log(product);
 
     return (
         // <div className="product-details flex justify-evenly items-center h-[90vh]">
@@ -40,7 +47,7 @@ const ProductDetails: React.FC = () => {
         // </div>
         <div className="bg-gray-100 min-h-screen p-6 flex h-[90vh] items-center">
         {/* Main Container */}
-        <div className="max-w-6xl mx-auto bg-white shadow-lg rounded-lg p-6 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="max-w-6xl mx-auto bg-white shadow-lg rounded-lg p-6 grid grid-cols-1 md:grid-cols-2 gap-8 lg:mt-[-80px]">
           {/* Left Section: Product Image */}
           <div className="flex items-center justify-center">
             <img

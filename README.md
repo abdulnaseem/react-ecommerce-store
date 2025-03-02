@@ -48,3 +48,5 @@ export default tseslint.config({
   },
 })
 ```
+
+#once item is purchased, clear the state and for invoice -> call api to show orders that have been purchased
