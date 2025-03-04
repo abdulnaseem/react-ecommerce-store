@@ -36,13 +36,13 @@ const Checkout: React.FC = () => {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const formDataCheck = new FormData(e.currentTarget);
-        for(const [key, value] of formDataCheck.entries()) {
-            if(value === "") {
-                console.log("Please fill the field " + key);
-            }
-            console.log(`${key}: ${value}\n`);
-        }
+        // const formDataCheck = new FormData(e.currentTarget);
+        // for(const [key, value] of formDataCheck.entries()) {
+        //     if(value === "") {
+        //         console.log("Please fill the field " + key);
+        //     }
+        //     console.log(`${key}: ${value}\n`);
+        // }
         dispatch(setUserDetails(formData));
         navigate("/cart/checkout/payment");
     }

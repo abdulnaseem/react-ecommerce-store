@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { FaCheckCircle } from "react-icons/fa";
 import CheckoutProgressBar from "../components/CheckoutProgressBar";
 import { Link } from "react-router-dom";
@@ -6,13 +6,6 @@ import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 
 const Invoice: React.FC = () => {
-  const [Checkmark, setCheckmark] = useState<React.FC | null>(null);
-
-  useEffect(() => {
-    import("react-checkmark").then((module) => {
-      setCheckmark(() => module.default);
-    });
-  }, []);
 
   const cartItems = useSelector((state: RootState) => state.cart.items);
   const totalPrice = useSelector((state: RootState) => state.cart.totalPrice);
@@ -24,7 +17,7 @@ const Invoice: React.FC = () => {
 
       {/* Success Message */}
       <div className="flex flex-col justify-center items-center mt-16">
-        {Checkmark ? <Checkmark /> : <FaCheckCircle className="text-green-500 text-5xl" />}
+        <FaCheckCircle className="text-green-500 text-5xl" />
         <span className="mt-4 text-lg font-semibold text-gray-900">
           Thank you for your purchase!
         </span>

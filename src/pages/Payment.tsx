@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ExpiryDateInput from "../components/ExpiryDateInput";
 import CheckoutProgressBar from "../components/CheckoutProgressBar";
 import OrderSummary from "../components/OrderSummary";
@@ -9,14 +9,18 @@ import { useNavigate } from "react-router-dom";
 
 const Payment: React.FC = () => {
 
+    const cartItems = useSelector((state: RootState) => state.cart.items);
     const totalPrice = useSelector((state: RootState) => state.cart.totalPrice);
     const navigate = useNavigate();
 
     const handlePay = () => {
-        console.log("Navigating to: /cart/checkout/payment/invoice"); // Debugging log
+        //console.log("Navigating to: /cart/checkout/payment/invoice"); // Debugging log
         navigate("/cart/checkout/payment/invoice", { replace: true });
     }
 
+    console.log("Cart Items:", JSON.stringify(cartItems, null, 2));
+    console.log("Total Price:", totalPrice);
+  
     return (
         <>
             <CheckoutProgressBar currentStep={3} />
