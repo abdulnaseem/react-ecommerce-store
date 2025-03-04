@@ -13,17 +13,17 @@ const Cart: React.FC = () => {
   const navigate = useNavigate();
 
   // Load cart items from localStorage or API (example)
-  useEffect(() => {
-    const storedCart = localStorage.getItem("cartItems");
-    if (storedCart) {
-      dispatch(setCartItems(JSON.parse(storedCart)));
-    }
-  }, [dispatch]);
+  // useEffect(() => {
+  //   const storedCart = localStorage.getItem("cartItems");
+  //   if (storedCart) {
+  //     dispatch(setCartItems(JSON.parse(storedCart)));
+  //   }
+  // }, [dispatch]);
 
   // Update localStorage when cart changes
-  useEffect(() => {
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  }, [cartItems]);
+  // useEffect(() => {
+  //   localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  // }, [cartItems]);
 
   // Calculate total price
   // const totalPrice = cartItems.reduce((total, cartItem) => {
